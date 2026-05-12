@@ -28,12 +28,13 @@ jobs:
         env:
           APP_VERSION: ${{ github.ref_name }}
         run: |
+          $version = $env:APP_VERSION -replace '^v', ''
           jpackage `
             --input pfa-app/target `
             --main-jar pfa-app-1.0.0-SNAPSHOT-fat.jar `
             --main-class com.pfa.app.Launcher `
             --name PersonalFinanceAnalyzer `
-            --app-version "$env:APP_VERSION" `
+            --app-version "$version" `
             --vendor "PFA" `
             --description "Personal Finance Analyzer - BHD Bank Statements" `
             --type exe `
