@@ -1,0 +1,10 @@
+com\pfa\ui\AppShell.class
+com\pfa\ui\DashboardView.class
+com\pfa\ui\ImportDialog.class
+com\pfa\ui\FilterPanel.class
+com\pfa\ui\TransactionsView.class
+com\pfa\ui\ImportDialog$FileProgressRow.class
+com\pfa\ui\TransactionsView$AmountCell.class
+com\pfa\ui\SettingsView.class
+com\pfa\ui\ImportDialog$FileStatus.class
+com\pfa\ui\BudgetsView.class

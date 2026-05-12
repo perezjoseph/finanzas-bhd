@@ -1,0 +1,8 @@
+com\pfa\app\BhdSavingsImportEndToEndTest.class
+com\pfa\app\BhdCreditCardImportE2ETest.class
+com\pfa\app\BhdSavingsImportEndToEndTest$StubOcrEngine.class
+com\pfa\app\CsvImportEndToEndTest.class
+com\pfa\app\PieChartGroupingTest.class
+com\pfa\app\SessionSaveLoadTest.class
+com\pfa\app\SessionSaveLoadEndToEndTest.class
+com\pfa\app\ExchangeRateSavingTest.class

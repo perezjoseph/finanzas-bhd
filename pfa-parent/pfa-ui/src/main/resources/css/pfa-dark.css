@@ -1,0 +1,758 @@
+/*
+ * PFA Dark Theme
+ *
+ * Color strategy: Restrained
+ * Neutrals tinted warm (toward amber)
+ * Single accent: muted copper for primary actions and selection
+ *
+ * Scene: developer reviewing transactions at a desk, evening, low ambient light.
+ * Numbers pop. Chrome recedes.
+ */
+
+/* === Tokens (JavaFX looked-up colors on .root) === */
+.root {
+    /* Surface layers (darkest to lightest) */
+    -pfa-bg-base: #2a2520;
+    -pfa-bg-raised: #332e28;
+    -pfa-bg-surface: #3d3731;
+    -pfa-bg-overlay: #47413a;
+
+    /* Text hierarchy */
+    -pfa-text-primary: #ebe8e4;
+    -pfa-text-secondary: #b0aaa3;
+    -pfa-text-muted: #807a73;
+
+    /* Accent: muted copper */
+    -pfa-accent: #c08050;
+    -pfa-accent-hover: #d09060;
+    -pfa-accent-muted: #8a6848;
+
+    /* Semantic */
+    -pfa-positive: #6ab87a;
+    -pfa-negative: #c86050;
+    -pfa-warning: #c8a040;
+    -pfa-info: #5090c0;
+
+    /* Borders */
+    -pfa-border: #4a4440;
+    -pfa-border-subtle: #3e3834;
+
+    /* Apply base styling */
+    -fx-background-color: -pfa-bg-base;
+    -fx-font-family: "Segoe UI", system-ui, sans-serif;
+    -fx-font-size: 13px;
+    -fx-text-fill: -pfa-text-primary;
+}
+
+/* === App Shell === */
+
+.app-shell {
+    -fx-background-color: -pfa-bg-base;
+}
+
+/* Toolbar */
+.app-toolbar {
+    -fx-background-color: -pfa-bg-raised;
+    -fx-padding: 8 12;
+    -fx-border-color: transparent transparent -pfa-border transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-spacing: 8;
+}
+
+.app-toolbar .button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -pfa-text-secondary;
+    -fx-padding: 6 12;
+    -fx-background-radius: 3;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+}
+
+.app-toolbar .button:hover {
+    -fx-background-color: -pfa-bg-surface;
+    -fx-text-fill: -pfa-text-primary;
+}
+
+.app-toolbar .button:focused {
+    -fx-border-color: -pfa-accent;
+    -fx-border-width: 1;
+    -fx-border-radius: 3;
+}
+
+.app-toolbar .label {
+    -fx-text-fill: -pfa-text-muted;
+    -fx-padding: 6 0 6 8;
+}
+
+/* Navigation panel */
+.nav-panel {
+    -fx-background-color: -pfa-bg-raised;
+    -fx-padding: 12 8;
+    -fx-spacing: 2;
+    -fx-border-color: transparent -pfa-border transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -pfa-text-secondary;
+    -fx-padding: 10 16;
+    -fx-background-radius: 5;
+    -fx-alignment: center-left;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+}
+
+.nav-button:hover {
+    -fx-background-color: -pfa-bg-surface;
+    -fx-text-fill: -pfa-text-primary;
+}
+
+.nav-button:selected {
+    -fx-background-color: -pfa-accent-muted;
+    -fx-text-fill: -pfa-text-primary;
+    -fx-font-weight: bold;
+}
+
+.nav-button:focused {
+    -fx-border-color: -pfa-accent;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+
+/* Content area */
+.content-area {
+    -fx-background-color: -pfa-bg-base;
+    -fx-padding: 20;
+}
+
+/* Status bar */
+.status-bar {
+    -fx-background-color: -pfa-bg-raised;
+    -fx-padding: 5 12;
+    -fx-border-color: -pfa-border transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-spacing: 32;
+}
+
+.status-bar .label {
+    -fx-text-fill: -pfa-text-muted;
+    -fx-font-size: 11px;
+}
+
+/* === Buttons === */
+
+.button {
+    -fx-background-color: -pfa-bg-surface;
+    -fx-text-fill: -pfa-text-primary;
+    -fx-padding: 7 14;
+    -fx-background-radius: 3;
+    -fx-border-color: -pfa-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 3;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: -pfa-bg-overlay;
+    -fx-border-color: -pfa-accent-muted;
+}
+
+.button:focused {
+    -fx-border-color: -pfa-accent;
+}
+
+.button:pressed {
+    -fx-background-color: -pfa-bg-raised;
+}
+
+.button:disabled {
+    -fx-opacity: 0.4;
+    -fx-cursor: default;
+}
+
+.button-primary {
+    -fx-background-color: -pfa-accent;
+    -fx-text-fill: #2a2520;
+    -fx-border-color: transparent;
+    -fx-font-weight: bold;
+}
+
+.button-primary:hover {
+    -fx-background-color: -pfa-accent-hover;
+}
+
+/* === Tables === */
+
+.table-view {
+    -fx-background-color: -pfa-bg-base;
+    -fx-border-color: -pfa-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: -pfa-bg-raised;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent -pfa-border transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 8 12;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: -pfa-text-muted;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: -pfa-bg-base;
+    -fx-border-color: transparent transparent -pfa-border-subtle transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: -pfa-bg-raised;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: -pfa-accent-muted;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: -pfa-bg-surface;
+}
+
+.table-view .table-cell {
+    -fx-padding: 6 12;
+    -fx-text-fill: -pfa-text-primary;
+    -fx-font-size: 12px;
+}
+
+.table-view .placeholder .label {
+    -fx-text-fill: -pfa-text-muted;
+}
+
+/* Amount cells: monospace for alignment */
+.amount-cell {
+    -fx-font-family: "Cascadia Code", "JetBrains Mono", "Consolas", monospace;
+    -fx-alignment: center-right;
+}
+
+.amount-debit {
+    -fx-text-fill: -pfa-negative;
+}
+
+.amount-credit {
+    -fx-text-fill: -pfa-positive;
+}
+
+/* === ComboBox === */
+
+.combo-box {
+    -fx-background-color: -pfa-bg-surface;
+    -fx-border-color: -pfa-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    -fx-padding: 4 8;
+}
+
+.combo-box:hover {
+    -fx-border-color: -pfa-accent-muted;
+}
+
+.combo-box:focused {
+    -fx-border-color: -pfa-accent;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: -pfa-text-primary;
+    -fx-background-color: transparent;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: -pfa-bg-overlay;
+    -fx-border-color: -pfa-border;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+.combo-box-popup .list-cell {
+    -fx-text-fill: -pfa-text-primary;
+    -fx-padding: 6 12;
+    -fx-background-color: transparent;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: -pfa-bg-surface;
+}
+
+.combo-box-popup .list-cell:selected {
+    -fx-background-color: -pfa-accent-muted;
+}
+
+/* === TextField === */
+
+.text-field {
+    -fx-background-color: -pfa-bg-surface;
+    -fx-text-fill: -pfa-text-primary;
+    -fx-border-color: -pfa-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    -fx-padding: 7 10;
+    -fx-prompt-text-fill: -pfa-text-muted;
+}
+
+.text-field:focused {
+    -fx-border-color: -pfa-accent;
+}
+
+/* === DatePicker === */
+
+.date-picker {
+    -fx-background-color: -pfa-bg-surface;
+    -fx-border-color: -pfa-border;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+.date-picker .text-field {
+    -fx-border-width: 0;
+}
+
+.date-picker:focused {
+    -fx-border-color: -pfa-accent;
+}
+
+/* === ListView === */
+
+.list-view {
+    -fx-background-color: -pfa-bg-surface;
+    -fx-border-color: -pfa-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+.list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: -pfa-text-primary;
+    -fx-padding: 6 10;
+}
+
+.list-view .list-cell:odd {
+    -fx-background-color: -pfa-bg-raised;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: -pfa-accent-muted;
+    -fx-text-fill: -pfa-text-primary;
+}
+
+.list-view .list-cell:hover {
+    -fx-background-color: -pfa-bg-overlay;
+}
+
+/* === CheckBox === */
+
+.check-box {
+    -fx-text-fill: -pfa-text-primary;
+}
+
+.check-box .box {
+    -fx-background-color: -pfa-bg-surface;
+    -fx-border-color: -pfa-border;
+    -fx-border-radius: 2;
+    -fx-background-radius: 2;
+    -fx-padding: 3;
+}
+
+.check-box:selected .box {
+    -fx-background-color: -pfa-accent;
+    -fx-border-color: -pfa-accent;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #2a2520;
+}
+
+.check-box:focused .box {
+    -fx-border-color: -pfa-accent;
+}
+
+/* === TitledPane === */
+
+.titled-pane {
+    -fx-text-fill: -pfa-text-primary;
+}
+
+.titled-pane > .title {
+    -fx-background-color: -pfa-bg-raised;
+    -fx-border-color: -pfa-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 5 5 0 0;
+    -fx-background-radius: 5 5 0 0;
+    -fx-padding: 8 12;
+}
+
+.titled-pane > .title > .text {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-fill: -pfa-text-secondary;
+}
+
+.titled-pane > .content {
+    -fx-background-color: -pfa-bg-base;
+    -fx-border-color: -pfa-border;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-radius: 0 0 5 5;
+    -fx-background-radius: 0 0 5 5;
+}
+
+/* === Charts === */
+
+.chart {
+    -fx-background-color: transparent;
+    -fx-padding: 8;
+}
+
+.chart-title {
+    -fx-text-fill: -pfa-text-secondary;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+}
+
+.chart-legend-item {
+    -fx-text-fill: -pfa-text-muted;
+}
+
+.axis {
+    -fx-tick-label-fill: -pfa-text-muted;
+    -fx-tick-label-font-size: 11px;
+}
+
+.axis-label {
+    -fx-text-fill: -pfa-text-muted;
+    -fx-font-size: 11px;
+}
+
+.chart-plot-background {
+    -fx-background-color: -pfa-bg-raised;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke: -pfa-border-subtle;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: -pfa-border-subtle;
+}
+
+/* Pie chart */
+.chart-pie {
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.chart-pie-label {
+    -fx-fill: -pfa-text-muted;
+    -fx-font-size: 11px;
+}
+
+/* Line chart */
+.chart-series-line {
+    -fx-stroke-width: 2;
+}
+
+.chart-line-symbol {
+    -fx-background-radius: 4;
+    -fx-padding: 3;
+}
+
+/* === ProgressBar === */
+
+.progress-bar {
+    -fx-background-color: -pfa-bg-surface;
+    -fx-background-radius: 3;
+    -fx-border-color: -pfa-border-subtle;
+    -fx-border-radius: 3;
+    -fx-indeterminate-bar-length: 60;
+}
+
+.progress-bar .bar {
+    -fx-background-color: -pfa-accent;
+    -fx-background-radius: 3;
+    -fx-background-insets: 1;
+}
+
+.progress-bar .track {
+    -fx-background-color: -pfa-bg-surface;
+    -fx-background-radius: 3;
+}
+
+.progress-warning .bar {
+    -fx-background-color: -pfa-warning;
+}
+
+.progress-danger .bar {
+    -fx-background-color: -pfa-negative;
+}
+
+/* === ScrollPane === */
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: -pfa-bg-overlay;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: -pfa-text-muted;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-shape: "";
+    -fx-padding: 0;
+}
+
+/* === Separator === */
+
+.separator .line {
+    -fx-border-color: -pfa-border-subtle;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* === Dialog === */
+
+.dialog-pane {
+    -fx-background-color: -pfa-bg-raised;
+    -fx-border-color: -pfa-border;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: -pfa-bg-surface;
+    -fx-padding: 20;
+}
+
+.dialog-pane .header-panel .label {
+    -fx-text-fill: -pfa-text-primary;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.dialog-pane .content {
+    -fx-padding: 20;
+}
+
+.dialog-pane .button-bar .button {
+    -fx-padding: 8 20;
+}
+
+/* === Filter Panel === */
+
+.filter-panel {
+    -fx-background-color: -pfa-bg-raised;
+    -fx-border-color: -pfa-border;
+    -fx-border-width: 0 0 0 1;
+    -fx-padding: 12;
+}
+
+.filter-panel .label {
+    -fx-text-fill: -pfa-text-muted;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.filter-panel .text-field {
+    -fx-font-size: 12px;
+}
+
+/* === Section headers === */
+
+.section-title {
+    -fx-text-fill: -pfa-text-primary;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.section-subtitle {
+    -fx-text-fill: -pfa-text-secondary;
+    -fx-font-size: 12px;
+}
+
+/* === Empty states === */
+
+.empty-state {
+    -fx-alignment: center;
+    -fx-padding: 32;
+}
+
+.empty-state .label {
+    -fx-text-fill: -pfa-text-muted;
+    -fx-font-size: 15px;
+}
+
+/* === Validation errors === */
+
+.validation-error {
+    -fx-text-fill: -pfa-negative;
+    -fx-font-size: 11px;
+}
+
+/* === Import dialog file rows === */
+
+.file-row {
+    -fx-padding: 8 12;
+    -fx-border-color: transparent transparent -pfa-border-subtle transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.file-row-processing {
+    -fx-background-color: #2a3040;
+}
+
+.file-row-completed {
+    -fx-background-color: #283828;
+}
+
+.file-row-failed {
+    -fx-background-color: #382828;
+}
+
+/* === Tooltip === */
+
+.tooltip {
+    -fx-background-color: -pfa-bg-overlay;
+    -fx-text-fill: -pfa-text-primary;
+    -fx-border-color: -pfa-border;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    -fx-padding: 6 10;
+    -fx-font-size: 11px;
+}
+
+/* === Budget Cards === */
+
+.budget-card {
+    -fx-padding: 8 12;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+}
+
+.budget-card-normal {
+    -fx-background-color: derive(-pfa-positive, -70%);
+    -fx-border-color: -pfa-positive;
+}
+
+.budget-card-normal .progress-bar .bar {
+    -fx-background-color: -pfa-positive;
+}
+
+.budget-card-warning {
+    -fx-background-color: derive(-pfa-warning, -70%);
+    -fx-border-color: -pfa-warning;
+}
+
+.budget-card-warning .progress-bar .bar {
+    -fx-background-color: -pfa-warning;
+}
+
+.budget-card-danger {
+    -fx-background-color: derive(-pfa-negative, -70%);
+    -fx-border-color: -pfa-negative;
+}
+
+.budget-card-danger .progress-bar .bar {
+    -fx-background-color: -pfa-negative;
+}
+
+.budget-card-expired {
+    -fx-background-color: -pfa-bg-surface;
+    -fx-border-color: -pfa-border;
+    -fx-opacity: 0.6;
+}
+
+.budget-card-expired .progress-bar .bar {
+    -fx-background-color: -pfa-text-muted;
+}
+
+.budget-card .label {
+    -fx-text-fill: -pfa-text-primary;
+}
+
+.budget-card-expired .label {
+    -fx-text-fill: -pfa-text-muted;
+}
+
+.budget-status-label {
+    -fx-font-weight: bold;
+    -fx-font-size: 10px;
+}
+
+.budget-status-warning {
+    -fx-text-fill: -pfa-warning;
+}
+
+.budget-status-danger {
+    -fx-text-fill: -pfa-negative;
+}
+
+.budget-status-expired {
+    -fx-text-fill: -pfa-text-muted;
+}
+
+/* === Alert Strip === */
+
+.alert-strip {
+    -fx-background-color: derive(-pfa-negative, -70%);
+    -fx-border-color: -pfa-negative;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 8 12;
+}
+
+.alert-strip .label {
+    -fx-text-fill: -pfa-negative;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+/* === Focus ring (global) === */
+
+.focus-visible {
+    -fx-border-color: -pfa-accent;
+    -fx-border-width: 2;
+}

@@ -1,0 +1,17 @@
+com\pfa\core\CurrencyConverterReciprocalProperties$Assertions$BigDecimalAssert.class
+com\pfa\core\CurrencyConverterReciprocalProperties.class
+com\pfa\core\CurrencyConverterRoundTripProperties$CurrencyPair.class
+com\pfa\core\CurrencyConverterTriangulationProperties.class
+com\pfa\core\MoneyTest.class
+com\pfa\core\CurrencyConverterRoundTripProperties.class
+com\pfa\core\CurrencyTest.class
+com\pfa\core\CurrencyConverterTriangulationProperties$CurrencyTriple.class
+com\pfa\core\ResultTest.class
+com\pfa\core\BudgetStatusTest.class
+com\pfa\core\AccountTest.class
+com\pfa\core\TransactionTest.class
+com\pfa\core\CategoryTest.class
+com\pfa\core\CurrencyConverterIdentityProperties.class
+com\pfa\core\DefaultCurrencyConverterTest.class
+com\pfa\core\CurrencyConverterReciprocalProperties$CurrencyPair.class
+com\pfa\core\CurrencyConverterReciprocalProperties$Assertions.class

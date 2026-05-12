@@ -1,0 +1,58 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21 (Corretto)
+        uses: actions/setup-java@v4
+        with:
+          distribution: corretto
+          java-version: '21'
+          cache: maven
+
+      - name: Build fat JAR
+        run: mvn clean package -pl pfa-app -am -Pfat-jar -DskipTests
+        working-directory: pfa-parent
+
+      - name: Create executable with jpackage
+        env:
+          APP_VERSION: ${{ github.ref_name }}
+        run: |
+          jpackage `
+            --input pfa-app/target `
+            --main-jar pfa-app-1.0.0-SNAPSHOT-fat.jar `
+            --main-class com.pfa.app.Launcher `
+            --name PersonalFinanceAnalyzer `
+            --app-version "$env:APP_VERSION" `
+            --vendor "PFA" `
+            --description "Personal Finance Analyzer - BHD Bank Statements" `
+            --type exe `
+            --win-menu `
+            --win-dir-chooser `
+            --win-shortcut `
+            --win-menu-group "Personal Finance Analyzer" `
+            --java-options "-Xmx512m" `
+            --dest pfa-app/target/installer
+        working-directory: pfa-parent
+
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PersonalFinanceAnalyzer-windows
+          path: pfa-parent/pfa-app/target/installer/*.exe
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: pfa-parent/pfa-app/target/installer/*.exe
+          generate_release_notes: true

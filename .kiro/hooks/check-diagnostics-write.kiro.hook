@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Check Diagnostics After Write",
+  "description": "Automatically checks for compile, lint, and type errors after any file write operation to catch issues early.",
+  "version": "1",
+  "when": {
+    "type": "postToolUse",
+    "toolTypes": [
+      "write"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Check the diagnostics for the file that was just written to. If there are any errors or warnings, fix them."
+  }
+}

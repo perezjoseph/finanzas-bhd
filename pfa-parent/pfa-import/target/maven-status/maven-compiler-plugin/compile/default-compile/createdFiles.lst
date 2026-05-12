@@ -1,0 +1,16 @@
+com\pfa\import_\CsvParseResult$MappingRequired.class
+com\pfa\import_\DefaultFormatDetector.class
+com\pfa\import_\CsvParseResult.class
+com\pfa\import_\DefaultStatementImporter.class
+com\pfa\import_\DefaultOcrEngine.class
+com\pfa\import_\DefaultTransactionNormalizer.class
+com\pfa\import_\CsvParseResult$Success.class
+com\pfa\import_\BhdCreditCardParser.class
+com\pfa\import_\CsvParser.class
+com\pfa\import_\DefaultStatementImporter$1.class
+com\pfa\import_\ColumnMappingStore.class
+com\pfa\import_\DelimiterDetector.class
+com\pfa\import_\CsvParseResult$Error.class
+com\pfa\import_\BhdSavingsParser.class
+com\pfa\import_\ColumnMapping.class
+com\pfa\import_\CsvParseResult$Empty.class

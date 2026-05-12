@@ -1,0 +1,7 @@
+com\pfa\persistence\KeyDerivationServiceTest.class
+com\pfa\persistence\EncryptedSessionSaveLoadTest.class
+com\pfa\persistence\SessionEncryptionManagerTest.class
+com\pfa\persistence\SnapshotSerializerTest.class
+com\pfa\persistence\DefaultSessionManagerTest.class
+com\pfa\persistence\EncryptedSessionSaveLoadTest$1.class
+com\pfa\persistence\EncryptionServiceTest.class
